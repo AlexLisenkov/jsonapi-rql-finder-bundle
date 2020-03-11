@@ -50,6 +50,22 @@ class Rql implements FinderInterface
     public function filterQuery(): void {
         $rql = $this->request->get('rql');
 
-        ORMVisitorFactory::appendFiltersOnly($this->query, $rql);
+        if ($rql) {
+            ORMVisitorFactory::appendFiltersOnly($this->query, $rql);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sortQuery(): void
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function sortQuery(): void
+    {
     }
 }
